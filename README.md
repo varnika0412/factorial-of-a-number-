@@ -34,35 +34,28 @@ To write and execute an Assembly language program to perform the factorial of a 
 ## PROGRAM
 ```asm
 ORG 0000H
-MOV DPTR,#4500H
-MOVX A,@DPTR
-MOV R0,A
-INC DPTR
-ACALL FACTORIAL
-MOVX @DPTR,A
-SJMP THIN
-FACTORIAL:DEC R0
-CJNE R0,#01H,PRODUCT
-SJMP THICK
-PRODUCT:MOV B,R0
+MOV R0,#30H
+MOV A,@R0
+MOV R1,A
+MOV A,#01H
+FACT:
+MOV B,R1
 MUL AB
-ACALL FACTORIAL
-THICK: RET
-THIN:RET
+DJNZ R1,FACT
+MOV 31H,A
 END
-
 ```
-OUTPUT
 
-(Keil output screenshot can be inserted here)
-
----
-MANUAL CALCULATIONS
+## OUTPUT
+<img width="1919" height="1138" alt="Screenshot 2026-02-18 103637" src="https://github.com/user-attachments/assets/52c3127e-0125-43b7-ac45-819e134c453d" />
 
 ---
+## MANUAL CALCULATIONS
+<img width="883" height="676" alt="image" src="https://github.com/user-attachments/assets/b20f2084-e246-493c-b6a5-f56fc8d07b09" />
 
-RESULT
+---
 
+## RESULT
 Thus, the factorial of a number was calculated and executed successfully using 8051 Keil.
 
 ---
